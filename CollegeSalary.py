@@ -3,8 +3,7 @@ import requests
 import re
 import pandas as pd
 from lxml import etree
-import os
-os.chdir("/home/steve/Python/BS4")
+
 
 # Get page and make it into soup
 URL = "https://www.payscale.com/college-salary-report/majors-that-pay-you-back/bachelors"
@@ -56,9 +55,8 @@ def scraper(URL):
     return df2
 
 
-scraper(URL).to_csv('collegesal3.csv')
+scraper(URL).to_csv('collegesal4.csv')
 
 for i in range(2, 35):
     URL = f"https://www.payscale.com/college-salary-report/majors-that-pay-you-back/bachelors/page/{i}"
-    scraper(URL).to_csv('collegesal3.csv', mode='a')
-
+    scraper(URL).to_csv('collegesal4.csv', mode='a')
