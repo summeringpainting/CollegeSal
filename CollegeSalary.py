@@ -47,7 +47,7 @@ def scraper(URL):
     # Create list for % High Meaning
     meany = []
     for i in list_of_values:
-        if 'Pre-' not in i.text and '-L' not in i.text and re.search(r'-', i.text) or re.search(r'%', i.text):
+        if i.text == "-" or re.search(r'%', i.text):
             meany.append(i.text)
 
     print(f"{meany} is meany")
@@ -56,11 +56,11 @@ def scraper(URL):
     return df2
 
 
-scraper(URL).to_csv('collegesal2.csv')
+scraper(URL).to_csv('collegesal3.csv')
 
 for i in range(2, 35):
     URL = f"https://www.payscale.com/college-salary-report/majors-that-pay-you-back/bachelors/page/{i}"
-    scraper(URL).to_csv('collegesal2.csv', mode='a')
+    scraper(URL).to_csv('collegesal3.csv', mode='a')
 
 # last page
 # URL = f"https://www.payscale.com/college-salary-report/majors-that-pay-you-back/bachelors/page/34"
